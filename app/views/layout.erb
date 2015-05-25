@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <link rel="stylesheet" href="/css/application.css">
+  <!-- Load Vollkorn font -->
+  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+  <title></title>
+</head>
+<body>
+<div id="content">
+  <header>
+    <a href="/"><img src="/img/ratatouille_cheese_nb.gif" class="logo"></a>
+    <div id="login-toolbar">
+      <% if current_user %>
+        <a href="/logout">Logout</a> || <a href="/home">Home</a> || <a href="/user/<%=current_user.id%>/created_recipes"> My Recipes</a> || <a href="/favorites">My Favorites</a> || <a href="/category/all">By Category</a> || <a href="/region/all">By Region</a> || <a href="/ingredient/all">Ingredients</a>
+      <% else %>
+        <a href="/login" class="login-link">Login</a> | <a href="/signup" class="signup-link">Sign up</a>
+      <% end %>
+      <div id="errors"><em><%=display_error%></em></div>
+  </header>
+  <%= yield %>
+</div>
+</body>
+</html>
